@@ -1,5 +1,6 @@
 package com.xzs.jersey.resource;
 
+import com.xzs.jersey.bean.LoginVO;
 import com.xzs.jersey.bean.ResultVO;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,11 @@ public class StudentResource {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/student")
-    public ResultVO getStudent(@Context HttpServletRequest request){
+    public ResultVO getStudent(@Context HttpServletRequest request, LoginVO loginVO) {
+
+        System.out.println(loginVO.toString());
+
+
         ResultVO resultVO = new ResultVO();
         resultVO.setMessage("登录成功");
         resultVO.setSuccess("true");
